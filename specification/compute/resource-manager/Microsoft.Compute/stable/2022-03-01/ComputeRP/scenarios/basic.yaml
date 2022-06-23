@@ -1,0 +1,90 @@
+scope: ResourceGroup
+variables:
+  vmName:
+    type: string
+    prefix: vmname
+  vmExtensionName:
+    type: string
+    prefix: vmextensio
+scenarios:
+  - steps:
+      - step: VirtualMachines_CreateOrUpdate
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachine_Create_WithPasswordAuthentication.json
+      - step: VirtualMachines_ListByLocation
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_ListBySubscription_ByLocation.json
+      - step: VirtualMachines_ListAll
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_ListAll_MaximumSet_Gen.json
+      - step: VirtualMachines_InstanceView
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachine_Get_InstanceView.json
+      - step: VirtualMachines_List
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_List_MaximumSet_Gen.json
+      - step: VirtualMachines_Get
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_Get.json
+      - step: VirtualMachines_ListAvailableSizes
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_ListAvailableVmSizes.json
+      - step: VirtualMachines_Update
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachine_Update_DetachDataDiskUsingToBeDetachedProperty.json
+      - step: VirtualMachines_AssessPatches
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_AssessPatches.json
+      - step: VirtualMachines_PowerOff
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_PowerOff_MaximumSet_Gen.json
+      - step: VirtualMachines_Reimage
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_Reimage.json
+      - step: VirtualMachines_Redeploy
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_Redeploy_MaximumSet_Gen.json
+      - step: VirtualMachines_PerformMaintenance
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_PerformMaintenance_MaximumSet_Gen.json
+      - step: VirtualMachines_Generalize
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_Generalize.json
+      - step: VirtualMachines_InstallPatches
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_InstallPatches.json
+      - step: VirtualMachines_Start
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_Start_MaximumSet_Gen.json
+      - step: VirtualMachines_Restart
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_Restart_MaximumSet_Gen.json
+      - step: VirtualMachines_Deallocate
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_Deallocate_MaximumSet_Gen.json
+      - step: VirtualMachines_ConvertToManagedDisks
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_ConvertToManagedDisks_MaximumSet_Gen.json
+      - step: VirtualMachines_Reapply
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_Reapply.json
+      - step: VirtualMachines_SimulateEviction
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachine_SimulateEviction.json
+      - step: VirtualMachines_Capture
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachines_Capture_MaximumSet_Gen.json
+      - step: VirtualMachines_RetrieveBootDiagnosticsData
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachine_RetrieveBootDiagnosticsData.json
+      - step: VirtualMachineExtensions_CreateOrUpdate
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachineExtensions_CreateOrUpdate_MaximumSet_Gen.json
+      - step: VirtualMachineExtensions_List
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachineExtensions_List_MaximumSet_Gen.json
+      - step: VirtualMachineExtensions_Get
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachineExtensions_Get_MaximumSet_Gen.json
+      - step: VirtualMachineExtensions_Update
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachineExtensions_Update.json
+      - step: VirtualMachineExtensions_Delete
+        exampleFile: >-
+          ../examples/virtualMachineExamples/VirtualMachineExtensions_Delete_MaximumSet_Gen.json
+      - step: VirtualMachines_Delete
+        exampleFile: ../examples/virtualMachineExamples/VirtualMachine_Delete_Force.json
