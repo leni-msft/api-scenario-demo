@@ -36,14 +36,13 @@ npm i -g oav@beta
 1. Compile swagger into dependencies.json with Restler
 
 ```bash
-docker run --rm -v $(pwd)/specification:/swagger -w /swagger/.restler_output mcr.microsoft.com/restlerfuzzer/restler:v8.5.0 dotnet /RESTler/restler/Restler.
-dll compile --api_spec /swagger/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/appconfiguration.json
+docker run --rm -v $(pwd)/specification:/swagger -w /swagger/.restler_output mcr.microsoft.com/restlerfuzzer/restler:v8.5.0 dotnet /RESTler/restler/Restler.dll compile --api_spec /swagger/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/appconfiguration.json
 ```
 
 2. Generate example based API Scenario
 
 ```bash
-oav generate-api-scenario static --specs specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/appconfiguration.json --dependency specification/appconfiguration/.restler_output/Compile/dependencies.json -o specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios --useExample
+oav generate-api-scenario static --specs specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/appconfiguration.json --dependency specification/.restler_output/Compile/dependencies.json -o specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios --useExample
 ```
 
 3. Run API Scenario Test
