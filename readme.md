@@ -8,7 +8,7 @@
 2. Install [oav](https://www.npmjs.com/package/oav)
 
 ```bash
-npm i -g oav@beta
+npm i -g oav
 ```
 
 3. [Prepare AAD app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and assign subscription contributor role to the app.
