@@ -4,22 +4,16 @@
 
 1. Install [docker](https://docs.docker.com/get-docker/)
 
-2. Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and authenticate with ACR
 
-```bash
-az login
-az acr login --name rpaasoneboxacr
-```
-
-3. Install [oav](https://www.npmjs.com/package/oav)
+2. Install [oav](https://www.npmjs.com/package/oav)
 
 ```bash
 npm i -g oav@beta
 ```
 
-4. [Prepare AAD app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and assign subscription contributor role to the app.
+3. [Prepare AAD app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and assign subscription contributor role to the app.
 
-5. Prepare env.json file with following content:
+4. Prepare env.json file with following content:
 
 ```json
 {
