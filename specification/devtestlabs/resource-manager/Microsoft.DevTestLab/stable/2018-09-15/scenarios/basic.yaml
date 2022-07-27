@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
 scope: ResourceGroup
 variables:
   labName:
@@ -5,7 +6,7 @@ variables:
     prefix: labname
   name:
     type: string
-    prefix: name
+    value: $(labName)
   userName:
     type: string
     prefix: username
@@ -23,6 +24,31 @@ variables:
     prefix: policysetn
 scenarios:
   - steps:
+      - step: Labs_CreateOrUpdate
+        exampleFile: ../examples/Labs_CreateOrUpdate.json
+        requestUpdate:
+          - replace: /lab/properties/labStorageType
+            value: Standard
+      - step: Labs_ListBySubscription
+        exampleFile: ../examples/Labs_ListBySubscription.json
+      - step: Labs_ListByResourceGroup
+        exampleFile: ../examples/Labs_ListByResourceGroup.json
+      - step: Labs_Get
+        exampleFile: ../examples/Labs_Get.json
+      - step: Labs_Update
+        exampleFile: ../examples/Labs_Update.json
+      - step: Labs_ExportResourceUsage
+        exampleFile: ../examples/Labs_ExportResourceUsage.json
+      - step: Labs_GenerateUploadUri
+        exampleFile: ../examples/Labs_GenerateUploadUri.json
+      - step: Labs_ImportVirtualMachine
+        exampleFile: ../examples/Labs_ImportVirtualMachine.json
+      - step: Labs_ClaimAnyVm
+        exampleFile: ../examples/Labs_ClaimAnyVm.json
+      - step: Labs_CreateEnvironment
+        exampleFile: ../examples/Labs_CreateEnvironment.json
+      - step: Labs_ListVhds
+        exampleFile: ../examples/Labs_ListVhds.json
       - step: VirtualMachines_CreateOrUpdate
         exampleFile: ../examples/VirtualMachines_CreateOrUpdate.json
       - step: VirtualMachines_List
@@ -57,28 +83,6 @@ scenarios:
         exampleFile: ../examples/VirtualMachines_TransferDisks.json
       - step: VirtualMachines_UnClaim
         exampleFile: ../examples/VirtualMachines_UnClaim.json
-      - step: Labs_CreateOrUpdate
-        exampleFile: ../examples/Labs_CreateOrUpdate.json
-      - step: Labs_ListBySubscription
-        exampleFile: ../examples/Labs_ListBySubscription.json
-      - step: Labs_ListByResourceGroup
-        exampleFile: ../examples/Labs_ListByResourceGroup.json
-      - step: Labs_Get
-        exampleFile: ../examples/Labs_Get.json
-      - step: Labs_Update
-        exampleFile: ../examples/Labs_Update.json
-      - step: Labs_ExportResourceUsage
-        exampleFile: ../examples/Labs_ExportResourceUsage.json
-      - step: Labs_GenerateUploadUri
-        exampleFile: ../examples/Labs_GenerateUploadUri.json
-      - step: Labs_ImportVirtualMachine
-        exampleFile: ../examples/Labs_ImportVirtualMachine.json
-      - step: Labs_ClaimAnyVm
-        exampleFile: ../examples/Labs_ClaimAnyVm.json
-      - step: Labs_CreateEnvironment
-        exampleFile: ../examples/Labs_CreateEnvironment.json
-      - step: Labs_ListVhds
-        exampleFile: ../examples/Labs_ListVhds.json
       - step: ServiceFabrics_CreateOrUpdate
         exampleFile: ../examples/ServiceFabrics_CreateOrUpdate.json
       - step: ServiceFabrics_List
@@ -287,7 +291,7 @@ scenarios:
         exampleFile: ../examples/Schedules_Delete.json
       - step: ServiceFabrics_Delete
         exampleFile: ../examples/ServiceFabrics_Delete.json
-      - step: Labs_Delete
-        exampleFile: ../examples/Labs_Delete.json
       - step: VirtualMachines_Delete
         exampleFile: ../examples/VirtualMachines_Delete.json
+      - step: Labs_Delete
+        exampleFile: ../examples/Labs_Delete.json
