@@ -1,0 +1,293 @@
+scope: ResourceGroup
+variables:
+  labName:
+    type: string
+    prefix: labname
+  name:
+    type: string
+    prefix: name
+  userName:
+    type: string
+    prefix: username
+  serviceFabricName:
+    type: string
+    prefix: servicefab
+  virtualMachineName:
+    type: string
+    prefix: virtualmac
+  artifactSourceName:
+    type: string
+    prefix: artifactso
+  policySetName:
+    type: string
+    prefix: policysetn
+scenarios:
+  - steps:
+      - step: VirtualMachines_CreateOrUpdate
+        exampleFile: ../examples/VirtualMachines_CreateOrUpdate.json
+      - step: VirtualMachines_List
+        exampleFile: ../examples/VirtualMachines_List.json
+      - step: VirtualMachines_Get
+        exampleFile: ../examples/VirtualMachines_Get.json
+      - step: VirtualMachines_Update
+        exampleFile: ../examples/VirtualMachines_Update.json
+      - step: VirtualMachines_Claim
+        exampleFile: ../examples/VirtualMachines_Claim.json
+      - step: VirtualMachines_Redeploy
+        exampleFile: ../examples/VirtualMachines_Redeploy.json
+      - step: VirtualMachines_Restart
+        exampleFile: ../examples/VirtualMachines_Restart.json
+      - step: VirtualMachines_Start
+        exampleFile: ../examples/VirtualMachines_Start.json
+      - step: VirtualMachines_Resize
+        exampleFile: ../examples/VirtualMachines_Resize.json
+      - step: VirtualMachines_DetachDataDisk
+        exampleFile: ../examples/VirtualMachines_DetachDataDisk.json
+      - step: VirtualMachines_GetRdpFileContents
+        exampleFile: ../examples/VirtualMachines_GetRdpFileContents.json
+      - step: VirtualMachines_ListApplicableSchedules
+        exampleFile: ../examples/VirtualMachines_ListApplicableSchedules.json
+      - step: VirtualMachines_AddDataDisk
+        exampleFile: ../examples/VirtualMachines_AddDataDisk.json
+      - step: VirtualMachines_ApplyArtifacts
+        exampleFile: ../examples/VirtualMachines_ApplyArtifacts.json
+      - step: VirtualMachines_Stop
+        exampleFile: ../examples/VirtualMachines_Stop.json
+      - step: VirtualMachines_TransferDisks
+        exampleFile: ../examples/VirtualMachines_TransferDisks.json
+      - step: VirtualMachines_UnClaim
+        exampleFile: ../examples/VirtualMachines_UnClaim.json
+      - step: Labs_CreateOrUpdate
+        exampleFile: ../examples/Labs_CreateOrUpdate.json
+      - step: Labs_ListBySubscription
+        exampleFile: ../examples/Labs_ListBySubscription.json
+      - step: Labs_ListByResourceGroup
+        exampleFile: ../examples/Labs_ListByResourceGroup.json
+      - step: Labs_Get
+        exampleFile: ../examples/Labs_Get.json
+      - step: Labs_Update
+        exampleFile: ../examples/Labs_Update.json
+      - step: Labs_ExportResourceUsage
+        exampleFile: ../examples/Labs_ExportResourceUsage.json
+      - step: Labs_GenerateUploadUri
+        exampleFile: ../examples/Labs_GenerateUploadUri.json
+      - step: Labs_ImportVirtualMachine
+        exampleFile: ../examples/Labs_ImportVirtualMachine.json
+      - step: Labs_ClaimAnyVm
+        exampleFile: ../examples/Labs_ClaimAnyVm.json
+      - step: Labs_CreateEnvironment
+        exampleFile: ../examples/Labs_CreateEnvironment.json
+      - step: Labs_ListVhds
+        exampleFile: ../examples/Labs_ListVhds.json
+      - step: ServiceFabrics_CreateOrUpdate
+        exampleFile: ../examples/ServiceFabrics_CreateOrUpdate.json
+      - step: ServiceFabrics_List
+        exampleFile: ../examples/ServiceFabrics_List.json
+      - step: ServiceFabrics_Get
+        exampleFile: ../examples/ServiceFabrics_Get.json
+      - step: ServiceFabrics_Update
+        exampleFile: ../examples/ServiceFabrics_Update.json
+      - step: ServiceFabrics_ListApplicableSchedules
+        exampleFile: ../examples/ServiceFabrics_ListApplicableSchedules.json
+      - step: ServiceFabrics_Stop
+        exampleFile: ../examples/ServiceFabrics_Stop.json
+      - step: ServiceFabrics_Start
+        exampleFile: ../examples/ServiceFabrics_Start.json
+      - step: Schedules_CreateOrUpdate
+        exampleFile: ../examples/Schedules_CreateOrUpdate.json
+      - step: Schedules_List
+        exampleFile: ../examples/Schedules_List.json
+      - step: Schedules_Get
+        exampleFile: ../examples/Schedules_Get.json
+      - step: Schedules_Update
+        exampleFile: ../examples/Schedules_Update.json
+      - step: Schedules_ListApplicable
+        exampleFile: ../examples/Schedules_ListApplicable.json
+      - step: Schedules_Execute
+        exampleFile: ../examples/Schedules_Execute.json
+      - step: GlobalSchedules_CreateOrUpdate
+        exampleFile: ../examples/GlobalSchedules_CreateOrUpdate.json
+      - step: GlobalSchedules_ListBySubscription
+        exampleFile: ../examples/GlobalSchedules_ListBySubscription.json
+      - step: GlobalSchedules_ListByResourceGroup
+        exampleFile: ../examples/GlobalSchedules_ListByResourceGroup.json
+      - step: GlobalSchedules_Get
+        exampleFile: ../examples/GlobalSchedules_Get.json
+      - step: GlobalSchedules_Update
+        exampleFile: ../examples/GlobalSchedules_Update.json
+      - step: GlobalSchedules_Retarget
+        exampleFile: ../examples/GlobalSchedules_Retarget.json
+      - step: GlobalSchedules_Execute
+        exampleFile: ../examples/GlobalSchedules_Execute.json
+      - step: Disks_CreateOrUpdate
+        exampleFile: ../examples/Disks_CreateOrUpdate.json
+      - step: Disks_List
+        exampleFile: ../examples/Disks_List.json
+      - step: Disks_Get
+        exampleFile: ../examples/Disks_Get.json
+      - step: Disks_Update
+        exampleFile: ../examples/Disks_Update.json
+      - step: Disks_Attach
+        exampleFile: ../examples/Disks_Attach.json
+      - step: Disks_Detach
+        exampleFile: ../examples/Disks_Detach.json
+      - step: ServiceFabricSchedules_CreateOrUpdate
+        exampleFile: ../examples/ServiceFabricSchedules_CreateOrUpdate.json
+      - step: ServiceFabricSchedules_List
+        exampleFile: ../examples/ServiceFabricSchedules_List.json
+      - step: ServiceFabricSchedules_Get
+        exampleFile: ../examples/ServiceFabricSchedules_Get.json
+      - step: ServiceFabricSchedules_Update
+        exampleFile: ../examples/ServiceFabricSchedules_Update.json
+      - step: ServiceFabricSchedules_Execute
+        exampleFile: ../examples/ServiceFabricSchedules_Execute.json
+      - step: VirtualMachineSchedules_CreateOrUpdate
+        exampleFile: ../examples/VirtualMachineSchedules_CreateOrUpdate.json
+      - step: VirtualMachineSchedules_List
+        exampleFile: ../examples/VirtualMachineSchedules_List.json
+      - step: VirtualMachineSchedules_Get
+        exampleFile: ../examples/VirtualMachineSchedules_Get.json
+      - step: VirtualMachineSchedules_Update
+        exampleFile: ../examples/VirtualMachineSchedules_Update.json
+      - step: VirtualMachineSchedules_Execute
+        exampleFile: ../examples/VirtualMachineSchedules_Execute.json
+      - step: NotificationChannels_CreateOrUpdate
+        exampleFile: ../examples/NotificationChannels_CreateOrUpdate.json
+      - step: NotificationChannels_List
+        exampleFile: ../examples/NotificationChannels_List.json
+      - step: NotificationChannels_Get
+        exampleFile: ../examples/NotificationChannels_Get.json
+      - step: NotificationChannels_Update
+        exampleFile: ../examples/NotificationChannels_Update.json
+      - step: NotificationChannels_Notify
+        exampleFile: ../examples/NotificationChannels_Notify.json
+      - step: Users_CreateOrUpdate
+        exampleFile: ../examples/Users_CreateOrUpdate.json
+      - step: Users_List
+        exampleFile: ../examples/Users_List.json
+      - step: Users_Get
+        exampleFile: ../examples/Users_Get.json
+      - step: Users_Update
+        exampleFile: ../examples/Users_Update.json
+      - step: ArtifactSources_CreateOrUpdate
+        exampleFile: ../examples/ArtifactSources_CreateOrUpdate.json
+      - step: ArtifactSources_List
+        exampleFile: ../examples/ArtifactSources_List.json
+      - step: ArtifactSources_Get
+        exampleFile: ../examples/ArtifactSources_Get.json
+      - step: ArtifactSources_Update
+        exampleFile: ../examples/ArtifactSources_Update.json
+      - step: VirtualNetworks_CreateOrUpdate
+        exampleFile: ../examples/VirtualNetworks_CreateOrUpdate.json
+      - step: VirtualNetworks_List
+        exampleFile: ../examples/VirtualNetworks_List.json
+      - step: VirtualNetworks_Get
+        exampleFile: ../examples/VirtualNetworks_Get.json
+      - step: VirtualNetworks_Update
+        exampleFile: ../examples/VirtualNetworks_Update.json
+      - step: Environments_CreateOrUpdate
+        exampleFile: ../examples/Environments_CreateOrUpdate.json
+      - step: Environments_List
+        exampleFile: ../examples/Environments_List.json
+      - step: Environments_Get
+        exampleFile: ../examples/Environments_Get.json
+      - step: Environments_Update
+        exampleFile: ../examples/Environments_Update.json
+      - step: CustomImages_CreateOrUpdate
+        exampleFile: ../examples/CustomImages_CreateOrUpdate.json
+      - step: CustomImages_List
+        exampleFile: ../examples/CustomImages_List.json
+      - step: CustomImages_Get
+        exampleFile: ../examples/CustomImages_Get.json
+      - step: CustomImages_Update
+        exampleFile: ../examples/CustomImages_Update.json
+      - step: Secrets_CreateOrUpdate
+        exampleFile: ../examples/Secrets_CreateOrUpdate.json
+      - step: Secrets_List
+        exampleFile: ../examples/Secrets_List.json
+      - step: Secrets_Get
+        exampleFile: ../examples/Secrets_Get.json
+      - step: Secrets_Update
+        exampleFile: ../examples/Secrets_Update.json
+      - step: Policies_CreateOrUpdate
+        exampleFile: ../examples/Policies_CreateOrUpdate.json
+      - step: Policies_List
+        exampleFile: ../examples/Policies_List.json
+      - step: Policies_Get
+        exampleFile: ../examples/Policies_Get.json
+      - step: Policies_Update
+        exampleFile: ../examples/Policies_Update.json
+      - step: Formulas_CreateOrUpdate
+        exampleFile: ../examples/Formulas_CreateOrUpdate.json
+      - step: Formulas_List
+        exampleFile: ../examples/Formulas_List.json
+      - step: Formulas_Get
+        exampleFile: ../examples/Formulas_Get.json
+      - step: Formulas_Update
+        exampleFile: ../examples/Formulas_Update.json
+      - step: ServiceRunners_CreateOrUpdate
+        exampleFile: ../examples/ServiceRunners_CreateOrUpdate.json
+      - step: ServiceRunners_Get
+        exampleFile: ../examples/ServiceRunners_Get.json
+      - step: Costs_CreateOrUpdate
+        exampleFile: ../examples/Costs_CreateOrUpdate.json
+      - step: Costs_Get
+        exampleFile: ../examples/Costs_Get.json
+      - step: ProviderOperations_List
+        exampleFile: ../examples/ProviderOperations_List.json
+      - variables:
+          locationName:
+            type: string
+            prefix: locationna
+        step: Operations_Get
+        exampleFile: ../examples/Operations_Get.json
+      - step: ArmTemplates_List
+        exampleFile: ../examples/ArmTemplates_List.json
+      - step: ArmTemplates_Get
+        exampleFile: ../examples/ArmTemplates_Get.json
+      - step: Artifacts_List
+        exampleFile: ../examples/Artifacts_List.json
+      - step: Artifacts_Get
+        exampleFile: ../examples/Artifacts_Get.json
+      - step: Artifacts_GenerateArmTemplate
+        exampleFile: ../examples/Artifacts_GenerateArmTemplate.json
+      - step: GalleryImages_List
+        exampleFile: ../examples/GalleryImages_List.json
+      - step: PolicySets_EvaluatePolicies
+        exampleFile: ../examples/PolicySets_EvaluatePolicies.json
+      - step: ServiceRunners_Delete
+        exampleFile: ../examples/ServiceRunners_Delete.json
+      - step: Formulas_Delete
+        exampleFile: ../examples/Formulas_Delete.json
+      - step: Policies_Delete
+        exampleFile: ../examples/Policies_Delete.json
+      - step: Secrets_Delete
+        exampleFile: ../examples/Secrets_Delete.json
+      - step: CustomImages_Delete
+        exampleFile: ../examples/CustomImages_Delete.json
+      - step: Environments_Delete
+        exampleFile: ../examples/Environments_Delete.json
+      - step: VirtualNetworks_Delete
+        exampleFile: ../examples/VirtualNetworks_Delete.json
+      - step: ArtifactSources_Delete
+        exampleFile: ../examples/ArtifactSources_Delete.json
+      - step: Users_Delete
+        exampleFile: ../examples/Users_Delete.json
+      - step: NotificationChannels_Delete
+        exampleFile: ../examples/NotificationChannels_Delete.json
+      - step: VirtualMachineSchedules_Delete
+        exampleFile: ../examples/VirtualMachineSchedules_Delete.json
+      - step: ServiceFabricSchedules_Delete
+        exampleFile: ../examples/ServiceFabricSchedules_Delete.json
+      - step: Disks_Delete
+        exampleFile: ../examples/Disks_Delete.json
+      - step: GlobalSchedules_Delete
+        exampleFile: ../examples/GlobalSchedules_Delete.json
+      - step: Schedules_Delete
+        exampleFile: ../examples/Schedules_Delete.json
+      - step: ServiceFabrics_Delete
+        exampleFile: ../examples/ServiceFabrics_Delete.json
+      - step: Labs_Delete
+        exampleFile: ../examples/Labs_Delete.json
+      - step: VirtualMachines_Delete
+        exampleFile: ../examples/VirtualMachines_Delete.json
