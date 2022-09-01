@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
+
+scope: ResourceGroup
+
+# authentication:
+#   type: AzureAD
+#   audience: https://management.azure.com
+
+variables:
+  accountName:
+    type: string
+    value: storagename8cmlu4
+
+prepareSteps:
+  - step: checkName
+    operationId: StorageAccounts_CheckNameAvailability
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      accountName:
+        name: $(accountName)
+        type: Microsoft.Storage/storageAccounts
+    responses:
+      200:
+        body:
+          nameAvailable: true
+  - step: createStorageAccount
+    operationId: StorageAccounts_Create
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      parameters:
+        sku:
+          name: Standard_LRS
+        kind: StorageV2
+        location: $(location)
+        properties:
+          encryption:
+            { "services": { "blob": {} }, "keySource": "Microsoft.Storage" }
+  - step: getStorageAccount
+    operationId: StorageAccounts_GetProperties
+    readmeTag: ../../../../../resource-manager/readme.md
+    outputVariables:
+      blobEndpoint:
+        type: string
+        fromResponse: /properties/primaryEndpoints/blob
+
+scenarios:
+  - scenario: blob_data_plane
+    # authentication:
+    #   type: AzureAD
+    #   audience: https://storage.azure.com
+    steps:
+      - operationId: Service_GetProperties
+        variables:
+          url: $(blobEndpoint)
+          x-ms-version: "2021-08-06"
