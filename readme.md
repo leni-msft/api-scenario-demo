@@ -42,7 +42,7 @@ oav generate-api-scenario static --specs specification/appconfiguration/resource
 3. Run API Scenario Test
 
 ```bash
-oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env --verbose
+oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose
 ```
 
 4. Check the test result
@@ -51,7 +51,7 @@ Check the raw report under `$(pwd)/generated/<scenario-file-name>/<runId>/<scena
 
 Or add parameter `--markdown <report-path>` to the command line to generate a markdown report.
 ```bash
-oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env --verbose --markdown $(pwd)/generated/report.md
+oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose --markdown $(pwd)/generated/report.md
 ```
 
 5. Debug API Scenario Test
