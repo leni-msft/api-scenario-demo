@@ -49,9 +49,9 @@ oav run specification/appconfiguration/resource-manager/Microsoft.AppConfigurati
 
 Check the raw report under `$(pwd)/.apitest/<scenario-file-name>/<runId>/<scenario-name>/report.json`.
 
-Or add parameter `--markdown <report-path>` to the command line to generate a markdown report.
+Or add parameter `--report markdown` to the command line to generate a markdown report.
 ```bash
-oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose --markdown $(pwd)/generated/report.md
+oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose --report markdown
 ```
 
 5. Debug API Scenario Test
