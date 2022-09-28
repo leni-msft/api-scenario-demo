@@ -47,7 +47,7 @@ oav run specification/appconfiguration/resource-manager/Microsoft.AppConfigurati
 
 4. Check the test result
 
-Check the raw report under `$(pwd)/generated/<scenario-file-name>/<runId>/<scenario-name>/report.json`.
+Check the raw report under `$(pwd)/.apitest/<scenario-file-name>/<runId>/<scenario-name>/report.json`.
 
 Or add parameter `--markdown <report-path>` to the command line to generate a markdown report.
 ```bash
