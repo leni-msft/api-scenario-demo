@@ -47,6 +47,9 @@ prepareSteps:
 
 scenarios:
   - scenario: appConfig_data_plane_crud
+    authentication:
+      type: AADToken
+      scope: https://azconfig.io/.default
     steps:
       - operationId: PutKeyValue
         parameters:
