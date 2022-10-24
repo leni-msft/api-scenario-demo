@@ -24,14 +24,14 @@ prepareSteps:
         fromResponse: /properties/dataPlaneURI
 
 scenarios:
-  - scenario: firstTry
+  - scenario: SimpleScenario
     variables:
       Endpoint: $(dataPlaneURI)
     authentication:
       type: AADToken
       scope: https://loadtest.azure-dev.com/.default
     steps:
-      - operationId: ServerMetrics_GetServerDefaultMetrics
+      - operationId: ServerMetrics_GetDefaultMetrics
   - scenario: GeneratedScenario
     authentication:
       type: AADToken
@@ -51,58 +51,60 @@ scenarios:
         type: string
         prefix: fileid
     steps:
-      # File type not supported
-      # - operationId: Test_UploadTestFile
+      # file not supported
+      # - operationId: Test_UploadFile
       #   exampleFile: ../examples/UploadTestFile.json
-      - operationId: Test_ListLoadTestSearch
+      - operationId: Test_List
         exampleFile: ../examples/ListLoadTestSearch.json
-      - operationId: Test_GetLoadTest
+      - operationId: Test_Get
         exampleFile: ../examples/GetLoadTest.json
-      - operationId: Test_GetAllTestFiles
+      - operationId: Test_GetAllFiles
         exampleFile: ../examples/GetAllTestFiles.json
-      - operationId: Test_GetTestFile
+      - operationId: Test_GetFile
         exampleFile: ../examples/GetTestFile.json
-      - operationId: Test_CreateOrUpdateTest
+      - operationId: Test_CreateOrUpdate
         exampleFile: ../examples/CreateOrUpdateTest.json
-      - operationId: AppComponent_GetAppComponent
-        exampleFile: ../examples/GetAppComponent.json
-      - operationId: AppComponent_DeleteAppComponent
+      - operationId: AppComponent_GetByTestOrTestRun
+        exampleFile: ../examples/GetAppComponentByTestOrTestRun.json
+      - operationId: AppComponent_Delete
         exampleFile: ../examples/DeleteAppComponent.json
-      - operationId: AppComponent_GetAppComponentByName
-        exampleFile: ../examples/GetAppComponentByName.json
-      - operationId: AppComponent_CreateOrUpdateAppComponents
+      - operationId: AppComponent_Get
+        exampleFile: ../examples/GetAppComponent.json
+      - operationId: AppComponent_CreateOrUpdate
         exampleFile: ../examples/CreateOrUpdateAppComponents.json
-      - operationId: ServerMetrics_GetServerMetrics
-        exampleFile: ../examples/GetServerMetrics.json
-      - operationId: ServerMetrics_GetServerDefaultMetrics
+      - operationId: ServerMetrics_GetByTestOrTestRun
+        exampleFile: ../examples/GetServerMetricsByTestOrTestRun.json
+      - operationId: ServerMetrics_GetDefaultMetrics
         exampleFile: ../examples/GetServerDefaultMetrics.json
       - operationId: ServerMetrics_ListSupportedResourceType
         exampleFile: ../examples/ListSupportedResourceType.json
-      - operationId: ServerMetrics_DeleteServerMetrics
+      - operationId: ServerMetrics_Delete
         exampleFile: ../examples/DeleteServerMetrics.json
-      - operationId: ServerMetrics_GetServerMetricsByName
-        exampleFile: ../examples/GetServerMetricsByName.json
-      - operationId: ServerMetrics_CreateOrUpdateServerMetricsConfig
+      - operationId: ServerMetrics_Get
+        exampleFile: ../examples/GetServerMetrics.json
+      - operationId: ServerMetrics_CreateOrUpdate
         exampleFile: ../examples/CreateOrUpdateServerMetricsConfig.json
-      - operationId: TestRun_ListTestRunsSearch
+      - operationId: TestRun_List
         exampleFile: ../examples/ListTestRunsSearch.json
-      - operationId: TestRun_DeleteTestRun
+      - operationId: TestRun_Delete
         exampleFile: ../examples/DeleteTestRun.json
-      - operationId: TestRun_GetTestRun
+      - operationId: TestRun_Get
         exampleFile: ../examples/GetTestRun.json
-      - operationId: TestRun_CreateAndUpdateTest
+      - operationId: TestRun_CreateOrUpdate
         exampleFile: ../examples/CreateAndUpdateTestRun.json
-      - operationId: TestRun_GetTestRunClientMetrics
-        exampleFile: ../examples/GetTestRunClientMetrics.json
-      - operationId: TestRun_GetTestRunClientMetricsFilters
-        exampleFile: ../examples/GetTestRunClientMetricsFilters.json
-      - operationId: TestRun_GetTestRunFile
+      - operationId: TestRun_GetFile
         exampleFile: ../examples/GetTestRunFile.json
-      - operationId: TestRun_StopTestRun
+      - operationId: TestRun_MetricDefinitions
+        exampleFile: ../examples/GetTestRunMetricsDefinitions.json
+      - operationId: TestRun_MetricNamespaces
+        exampleFile: ../examples/GetTestRunMetricsNamespaces.json
+      - operationId: TestRun_Metrics
+        exampleFile: ../examples/GetTestRunMetrics.json
+      - operationId: TestRun_Stop
         exampleFile: ../examples/StopTestRun.json
-      - operationId: Test_DeleteTestFile
+      - operationId: Test_DeleteFile
         exampleFile: ../examples/DeleteTestFile.json
-      - operationId: Test_DeleteLoadTest
+      - operationId: Test_Delete
         exampleFile: ../examples/DeleteLoadTest.json
 
 cleanUpSteps:
