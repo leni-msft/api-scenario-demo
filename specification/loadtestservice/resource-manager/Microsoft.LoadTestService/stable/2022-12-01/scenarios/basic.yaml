@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
+scope: ResourceGroup
+variables:
+  loadTestName:
+    type: string
+    prefix: loadtestna
+  quotaBucketName:
+    type: string
+    prefix: quotabucke
+scenarios:
+  - scenario: GeneratedScenario
+    steps:
+      - operationId: LoadTests_CreateOrUpdate
+        step: LoadTests_CreateOrUpdate
+        exampleFile: ../examples/LoadTests_CreateOrUpdate.json
+      - operationId: LoadTests_ListBySubscription
+        step: LoadTests_ListBySubscription
+        exampleFile: ../examples/LoadTests_ListBySubscription.json
+      - operationId: LoadTests_Get
+        step: LoadTests_Get
+        exampleFile: ../examples/LoadTests_Get.json
+      - operationId: LoadTests_ListOutboundNetworkDependenciesEndpoints
+        step: LoadTests_ListOutboundNetworkDependenciesEndpoints
+        exampleFile: ../examples/LoadTests_ListOutboundNetworkDependenciesEndpoints.json
+      - operationId: LoadTests_ListByResourceGroup
+        step: LoadTests_ListByResourceGroup
+        exampleFile: ../examples/LoadTests_ListByResourceGroup.json
+      - operationId: LoadTests_Update
+        step: LoadTests_Update
+        exampleFile: ../examples/LoadTests_Update.json
+      - operationId: Operations_List
+        step: Operations_List
+        exampleFile: ../examples/Operations_List.json
+      - operationId: Quotas_List
+        step: Quotas_List
+        exampleFile: ../examples/Quotas_List.json
+      - operationId: Quotas_Get
+        step: Quotas_Get
+        exampleFile: ../examples/Quotas_Get.json
+      - operationId: Quotas_CheckAvailability
+        step: Quotas_CheckAvailability
+        exampleFile: ../examples/Quotas_CheckAvailability.json
+      - operationId: LoadTests_Delete
+        step: LoadTests_Delete
+        exampleFile: ../examples/LoadTests_Delete.json

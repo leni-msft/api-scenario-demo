@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
+scope: ResourceGroup
+
+variables:
+  loadTestName:
+    type: string
+    prefix: loadtest
+
+prepareSteps:
+  - operationId: LoadTests_CreateOrUpdate
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      LoadTestResource:
+        location: $(location)
+        identity:
+          type: SystemAssigned
+        properties:
+          description: "This is load test resource"
+          # encryption:
+          #   identity:
+          #     type: SystemAssigned
+          #   keyUrl: https://dummy.vault.azure.net/keys/dummykey1
+  - operationId: LoadTests_Get
+    readmeTag: ../../../../../resource-manager/readme.md
+
+scenarios:
+  - steps:
+      - 
+
+cleanUpSteps:
+  - operationId: LoadTests_Delete
+    readmeTag: ../../../../../resource-manager/readme.md
+
+
+
