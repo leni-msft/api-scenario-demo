@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
-scope: ResourceGroup
+scope: ../../../../liveness.yaml
+
 variables:
   testRunId:
     type: string
@@ -15,6 +16,11 @@ variables:
     prefix: fileid
 scenarios:
   - scenario: GeneratedScenario
+    variables:
+      Endpoint: $(dataPlaneURI)
+    authentication:
+      type: AADToken
+      scope: https://loadtest.azure-dev.com/.default
     steps:
       - operationId: Test_UploadFile
         exampleFile: ../examples/UploadTestFile.json

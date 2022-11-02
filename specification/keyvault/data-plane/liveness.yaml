@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=https://github.com/Azure/azure-rest-api-specs/raw/main/documentation/api-scenario/references/v1.2/schema.json
+scope: ResourceGroup
+variables:
+  vaultName:
+    type: string
+    prefix: vaultname
+  vaultBaseUrl: https://$(vaultName).vault.azure.net
+  key-name:
+    type: string
+    prefix: keyname
+  key-version:
+    type: string
+    prefix: keyversion
+
+prepareSteps:
+  - operationId: Vaults_CheckNameAvailability
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      vaultName:
+        name: $(vaultName)
+        type: Microsoft.KeyVault/vaults
+  - operationId: Vaults_CreateOrUpdate
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      parameters:
+        location: $(location)
+        properties:
+          tenantId: $(tenantId)
+          sku:
+            family: A
+            name: standard
+          accessPolicies:
+            - tenantId: $(tenantId)
+              objectId: 48f6cf37-24cb-4143-8663-b9fad7c24025
+              permissions:
+                keys:
+                  - encrypt
+                  - decrypt
+                  - wrapKey
+                  - unwrapKey
+                  - sign
+                  - verify
+                  - get
+                  - list
+                  - create
+                  - update
+                  - import
+                  - delete
+                  - backup
+                  - restore
+                  - recover
+                  - purge
+          enabledForDeployment: true
+          enabledForDiskEncryption: true
+          enabledForTemplateDeployment: true
+          publicNetworkAccess: Enabled
+
+scenarios:
+  - scenario: SimpleScenario
+    authentication:
+      type: AADToken
+      scope: https://vault.azure.net/.default
+    steps:
+      - step: GetKeys
+        exampleFile: ../examples/GetKeys-example.json
+
+cleanUpSteps:
+  - operationId: Vaults_Delete
+    readmeTag: ../../../../../resource-manager/readme.md
+  - operationId: Vaults_GetDeleted
+    readmeTag: ../../../../../resource-manager/readme.md
+  - operationId: Vaults_PurgeDeleted
+    readmeTag: ../../../../../resource-manager/readme.md

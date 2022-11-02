@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
+scope: ResourceGroup
+variables:
+  loadTestName:
+    type: string
+    prefix: loadtest
+
+prepareSteps:
+  - operationId: LoadTests_CreateOrUpdate
+    readmeTag: ../../../../../resource-manager/readme.md
+    parameters:
+      LoadTestResource:
+        location: westus2
+        identity:
+          type: SystemAssigned
+  - operationId: LoadTests_Get
+    readmeTag: ../../../../../resource-manager/readme.md
+    outputVariables:
+      dataPlaneURI:
+        type: string
+        fromResponse: /properties/dataPlaneURI
+
+scenarios:
+  - scenario: LivenessProbe
+    variables:
+      Endpoint: $(dataPlaneURI)
+    authentication:
+      type: AADToken
+      scope: https://loadtest.azure-dev.com/.default
+    steps:
+      - operationId: ServerMetrics_GetServerDefaultMetrics
+
+cleanUpSteps:
+  - operationId: LoadTests_Delete
+    readmeTag: ../../../../../resource-manager/readme.md
