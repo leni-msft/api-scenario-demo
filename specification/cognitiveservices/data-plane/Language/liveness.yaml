@@ -1,28 +1,36 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
-scope: ResourceGroup
+scope: Subscription
 variables:
-  accountName:
-    type: string
-    prefix: account
+  resourceGroupName: rg-leni
+  accountName: coglantest
 
 prepareSteps:
-  - operationId: Accounts_Create
+  # Cognitive account only supports creation from portal
+  # - operationId: Accounts_Create
+  #   readmeTag: ../../resource-manager/readme.md
+  #   parameters:
+  #     account:
+  #       location: $(location)
+  #       kind: TextAnalytics
+  #       sku:
+  #         name: S0
+  #       properties: {}
+  #       identity:
+  #         type: SystemAssigned
+  - operationId: Accounts_Get
     readmeTag: ../../resource-manager/readme.md
-    parameters:
-      account:
-        location: $(location)
-        kind: CognitiveServices
-        sku:
-          name: S0
-        properties: {}
-        identity:
-          type: SystemAssigned
+    outputVariables:
+      Endpoint:
+        fromResponse: /properties/endpoints/Language
 
 scenarios:
-  - scenario: LivenessProbe
+  - scenario: Liveness
+    authentication:
+      type: AADToken
+      scope: https://cognitiveservices.azure.com/.default
     steps:
-      - operationId: Accounts_Get
-        readmeTag: ../../resource-manager/readme.md
+      - operationId: AnalyzeText
+        exampleFile: ./stable/2022-05-01/examples/SuccessfulEntityLinkingRequest.json
 
 cleanUpSteps:
   - operationId: Accounts_Delete
