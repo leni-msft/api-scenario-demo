@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/documentation/api-scenario/references/v1.2/schema.json
+scope: ResourceGroup
+variables:
+  accountName:
+    type: string
+    prefix: account
+
+prepareSteps:
+  - operationId: Accounts_Create
+    readmeTag: ../../resource-manager/readme.md
+    parameters:
+      account:
+        location: $(location)
+        kind: CognitiveServices
+        sku:
+          name: S0
+        properties: {}
+        identity:
+          type: SystemAssigned
+
+scenarios:
+  - scenario: LivenessProbe
+    steps:
+      - operationId: Accounts_Get
+        readmeTag: ../../resource-manager/readme.md
+
+cleanUpSteps:
+  - operationId: Accounts_Delete
+    readmeTag: ../../resource-manager/readme.md
