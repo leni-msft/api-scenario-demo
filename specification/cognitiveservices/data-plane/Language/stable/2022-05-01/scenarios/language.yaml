@@ -18,31 +18,50 @@ variables:
     prefix: trainedmod
 
 prepareSteps:
+  ## Cognitive account only supports creation from portal
+  # - operationId: Accounts_Create
+  #   readmeTag: ../../resource-manager/readme.md
+  #   parameters:
+  #     account:
+  #       location: $(location)
+  #       kind: TextAnalytics
+  #       sku:
+  #         name: S0
+  #       properties: {}
+  #       identity:
+  #         type: SystemAssigned
   - operationId: Accounts_Get
     readmeTag: ../../../../../resource-manager/readme.md
     outputVariables:
+      # resourceId:
+      #   fromResponse: /id
       Endpoint:
         fromResponse: /properties/endpoints/Language
+  ## already assigned with portal
+  # - roleAssignment:
+  #     principalId: $(object_id)
+  #     roleName: Cognitive Services Language Owner
+  #     scope: $(resourceId)
 
 scenarios:
-  - scenario: AnalyzeText
+  - scenario: CognitiveLanguageService
     authentication:
       type: AADToken
       scope: https://cognitiveservices.azure.com/.default
     steps:
       - operationId: AnalyzeText
         exampleFile: ../examples/SuccessfulEntityLinkingRequest.json
+      - operationId: ConversationalAnalysisAuthoring_CreateProject
+        exampleFile: >-
+          ../examples/analyzeconversations-authoring/SuccessfulCreateProject.json
+      - operationId: ConversationalAnalysisAuthoring_GetProject
+        exampleFile: ../examples/analyzeconversations-authoring/SuccessfulGetProject.json
       - operationId: AnalyzeText_SubmitJob
         exampleFile: ../examples/SuccessfulAnalyzeTextJobsMultipleTaskSubmitRequest.json
       - operationId: AnalyzeText_JobStatus
         exampleFile: ../examples/SuccessfulAnalyzeTextJobsMultipleTaskStatusRequest.json
       - operationId: AnalyzeText_CancelJob
         exampleFile: ../examples/SuccessfulAnalyzeTextJobsCancelRequest.json
-  - scenario: TextAnalysisAuthoring
-    authentication:
-      type: AADToken
-      scope: https://cognitiveservices.azure.com/.default
-    steps:
       - operationId: TextAnalysisAuthoring_DeployProject
         exampleFile: ../examples/analyzetext-authoring/SuccessfulDeployProject.json
       - operationId: TextAnalysisAuthoring_ListProjects
@@ -101,16 +120,6 @@ scenarios:
         exampleFile: ../examples/analyzetext-authoring/SuccessfulDeleteDeployment.json
       - operationId: TextAnalysisAuthoring_DeleteProject
         exampleFile: ../examples/analyzetext-authoring/SuccessfulDeleteProject.json
-  - scenario: ConversationalAnalysisAuthoring
-    authentication:
-      type: AADToken
-      scope: https://cognitiveservices.azure.com/.default
-    steps:
-      - operationId: ConversationalAnalysisAuthoring_CreateProject
-        exampleFile: >-
-          ../examples/analyzeconversations-authoring/SuccessfulCreateProject.json
-      - operationId: ConversationalAnalysisAuthoring_GetProject
-        exampleFile: ../examples/analyzeconversations-authoring/SuccessfulGetProject.json
       - operationId: ConversationalAnalysisAuthoring_DeployProject
         exampleFile: >-
           ../examples/analyzeconversations-authoring/SuccessfulDeployProject.json
