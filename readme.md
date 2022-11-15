@@ -13,7 +13,7 @@ npm i -g oav
 
 3. [Prepare AAD app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and assign subscription contributor role to the app.
 
-4. Prepare env.json file with following content:
+4. Prepare `env.json` file with following content:
 
 ```json
 {
@@ -42,7 +42,7 @@ oav generate-api-scenario static --specs specification/appconfiguration/resource
 3. Run API Scenario Test
 
 ```bash
-oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose
+oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e env.json -l verbose
 ```
 
 4. Check the test result
@@ -51,7 +51,7 @@ Check the raw report under `$(pwd)/.apitest/<scenario-file-name>/<runId>/<scenar
 
 Or add parameter `--report markdown` to the command line to generate a markdown report.
 ```bash
-oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e ~/dogfooding/test-apiscenario/.env -l verbose --report markdown
+oav run specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2022-05-01/scenarios/basic.yaml --tag=package-2022-05-01 -e env.json -l verbose --report markdown
 ```
 
 5. Debug API Scenario Test
