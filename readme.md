@@ -57,3 +57,7 @@ oav run specification/appconfiguration/resource-manager/Microsoft.AppConfigurati
 5. Debug API Scenario Test
 
 Import the generated Postman collection into Postman and run the collection manually.
+
+## References
+
+https://aka.ms/apiscenario
